@@ -18,7 +18,7 @@ permissions:
 
 env:
   DOTNET_VERSION: "8.0.x"
-  # Point this to your xUnit test project (csproj). Adjust as needed.
+  # Point this to your xUnit test project (csproj). Adjust as needed. Minor change
   TEST_PROJECT: "Calculator.Tests/Calculator.Tests.csproj"
 
 jobs:
@@ -72,14 +72,14 @@ jobs:
 
       # Only package for Pages when merging/pushing to main
       - name: Upload Pages artifact
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./coveragereport
 
   deploy:
     # Only deploy on push to main
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: build-and-test
     runs-on: ubuntu-latest
     environment:
