@@ -2,7 +2,7 @@ name: Test & Publish Coverage (xUnit + ReportGenerator)
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
 
 # Avoid overlapping Pages deployments
@@ -19,7 +19,7 @@ permissions:
 env:
   DOTNET_VERSION: "8.0.x"
   # Point this to your xUnit test project (csproj). Adjust as needed.
-  TEST_PROJECT: "tests/MyApp.Tests/MyApp.Tests.csproj"
+  TEST_PROJECT: "../CalculatorTests.Tests/CalculatorTests.Tests.csproj"
 
 jobs:
   build-and-test:
