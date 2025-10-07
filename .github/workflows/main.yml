@@ -39,6 +39,12 @@ jobs:
       - name: Build
         run: dotnet build --no-restore -c Release
 
+      - name: Show working directory
+        run: pwd
+
+      - name: List root directory
+        run: ls -la
+
       # xUnit tests + Coverlet data collector
       - name: Test (xUnit) and collect coverage
         run: >
